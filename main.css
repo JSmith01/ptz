@@ -1,0 +1,110 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+}
+
+#cameras {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.camera-block {
+    position: relative;
+}
+
+video {
+    max-width: 100%;
+    border: 1px solid #ccc;
+    background-color: black;
+}
+
+.controls {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    gap: 5px;
+    --offset-x: 15px;
+    --offset-y: 15px;
+    --button-size: 30px;
+    --button-spacing: 3px;
+}
+
+/* PTZ Button Styling */
+.pan-minus, .pan-plus, .tilt-minus, .tilt-plus, .zoom-minus, .zoom-plus, .reset-ptz, .preset-ptz-1, .preset-ptz-2, .preset-ptz-3 {
+    position: absolute;
+    width: var(--button-size);
+    height: var(--button-size);
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.4);
+    padding: 0;
+    font-size: calc(var(--button-size) / 2);
+    line-height: calc(var(--button-size) / 2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inversed {
+    color: transparent;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.reset-ptz {
+    left: calc(var(--offset-x) + var(--button-spacing) + var(--button-size));
+    top: calc(var(--offset-y) + var(--button-spacing) + var(--button-size));
+}
+
+.preset-ptz-1, .preset-ptz-2, .preset-ptz-3 {
+    left: var(--offset-x);
+    top: calc(var(--offset-y) + (var(--button-spacing) + var(--button-size)) * 3 + var(--button-size) / 3);
+}
+
+.preset-ptz-2 {
+    left: calc(var(--offset-x) + var(--button-spacing) + var(--button-size));
+}
+
+.preset-ptz-3 {
+    left: calc(var(--offset-x) + (var(--button-spacing) + var(--button-size)) * 2);
+}
+
+.pan-plus {
+    left: calc(var(--offset-x));
+    top: calc(var(--offset-y) + var(--button-spacing) + var(--button-size));
+}
+
+.pan-minus {
+    left: calc(var(--offset-x) + (var(--button-spacing) + var(--button-size)) * 2);
+    top: calc(var(--offset-y) + var(--button-spacing) + var(--button-size));
+}
+
+.tilt-plus {
+    left: calc(var( --offset-x) + var(--button-spacing) + var(--button-size));
+    top: calc(var(--offset-y));
+}
+
+.tilt-minus {
+    left: calc(var( --offset-x) + var(--button-spacing) + var(--button-size));
+    top: calc(var(--offset-y) + (var(--button-spacing) + var(--button-size)) * 2);
+}
+
+.zoom-minus {
+    left: calc(var(--offset-x));
+    top: calc(var(--offset-y) + (var(--button-spacing) + var(--button-size)) * 2);
+}
+
+.zoom-plus {
+    left: calc(var(--offset-x) + (var(--button-spacing) + var(--button-size)) * 2);
+    top: calc(var(--offset-y) + (var(--button-spacing) + var(--button-size)) * 2);
+}
+
+button {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+input[type="range"] {
+    width: 100%;
+}
